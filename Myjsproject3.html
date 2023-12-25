@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .card-header{text-align: center;}
+        .card{margin-top: 100px;}
+        #Sonuc{float: right;}
+        .butonlar{margin-top: 5px;}
+        #Temizle{float: right;}  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                HESAP MAKİNESİ
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="firstNumber">
+                    <input type="text" class="form-control" id="secondNumber">
+                </div>
+                <div class="butonlar">
+                    <button type="submit" class="btn btn-primary" onclick="topla()" id="Topla">+</button>
+                    <button type="submit" class="btn btn-primary" onclick="cikar()" id="Cikar">-</button>
+                    <button type="submit" class="btn btn-primary" onclick="carp()" id="Carp">X</button>
+                    <button type="submit" class="btn btn-primary" onclick="bol()" id="Bol">/</button>
+                    <button type="submit" class="btn btn-primary" onclick="temizle()" id="Temizle">TEMİZLE</button>
+                </div>
+                <br>
+                <label>Sonuç:</label>
+                <span id="sonuc"></span>
+            </div>
+        </div> 
+    </div>
+
+    <script>
+       function topla()
+       {
+        let num1 = parseFloat(document.getElementById("firstNumber").value);
+        let num2 = parseFloat(document.getElementById("secondNumber").value);
+        document.getElementById("sonuc").innerText = num1 + num2
+       }
+       function cikar()
+       {
+        let num1 = parseFloat(document.getElementById("firstNumber").value);
+        let num2 = parseFloat(document.getElementById("secondNumber").value);
+        document.getElementById("sonuc").innerText = num1 - num2
+       }
+       function carp()
+       {
+        let num1 = parseFloat(document.getElementById("firstNumber").value);
+        let num2 = parseFloat(document.getElementById("secondNumber").value);
+        document.getElementById("sonuc").innerText = num1 * num2
+       }
+       function bol()
+       {
+        let num1 = parseFloat(document.getElementById("firstNumber").value);
+        let num2 = parseFloat(document.getElementById("secondNumber").value);
+        if (num2 !== 0) {
+                document.getElementById('sonuc').innerText = num1 / num2;
+            } else {
+                document.getElementById('sonuc').innerText = "Bölme hatası: 0'a bölme!";
+            }
+       }
+       function temizle()
+       {
+        let num1 = document.getElementById("firstNumber");
+        num1.value =""
+        let num2 = document.getElementById("secondNumber");
+        num2.value =""
+        let sonuc = document.getElementById("sonuc");
+        sonuc.innerText =""
+       }
+    </script>
+</body>
+</html>
